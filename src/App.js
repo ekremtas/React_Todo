@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React ,{Component} from 'react';
+import OneList from './component/OneList';
+import AddTodo from './component/AddTodo';
+import TodosList from './component/TodosList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      todos : [],
+      test : "test data"
+      
+    }
+  }
+
+  render(){
+    
+    return(
+      <div className="container">
+        <div className="row text-center">
+          <div className="col-md-12">
+            <h1>Todo App With React.js</h1>
+            <hr/>
+          </div>
+          
+
+            <AddTodo />
+          
+            <TodosList />
+          
+          
+          
+        </div> 
+        
+        <br/>
+        <br/>
+        <h2>{this.state.todos}</h2>
+          <OneList  name={this.state.test}  /> 
+      </div>
+    );
+  }
+
 }
 
 export default App;
